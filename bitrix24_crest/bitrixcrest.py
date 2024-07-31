@@ -205,7 +205,7 @@ class BitrixCrest:
                     i += 1
                     ar_data_rest['cmd'][key] = data['method']
                     if 'params' in data:
-                        ar_data_rest['cmd'][key] += '?' + requests.compat.urlencode(data['params'])
+                        ar_data_rest['cmd'][key] += '?' + str(data['params'])
             if ar_data_rest['cmd']:
                 ar_data_rest['halt'] = halt
                 log(LogMessage(

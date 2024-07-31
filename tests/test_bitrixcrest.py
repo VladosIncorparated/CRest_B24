@@ -6,7 +6,7 @@ import json
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
-from bitrix24_crest import BitrixCrest
+from bitrix24_crest.bitrixcrest import BitrixCrest
 
 def main():
     crest = BitrixCrest()
@@ -43,7 +43,12 @@ def main():
         batch_data = {
             'get_contact': {
                 'method': 'crm.contact.get',
-                'params': {"id": new_contact_id}
+                'params': {
+                    "FIELDS":{
+                        "NAME":"Иван",
+                        "LAST_NAME":"Петров"
+                        }
+                    }
             }
         }
         batch_result = crest.call_batch(batch_data)
